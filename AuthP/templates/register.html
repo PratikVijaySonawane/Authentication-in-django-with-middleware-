@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register-Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1 class="text-center my-4">Registration-Page</h1>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 offset-md-4">
+          <div class="card bg-warning">
+            <div class="card-body">
+
+               <!-- form for Registration -->
+              <form action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group mb-3">
+                    <label for="{{form.username.id_for_label}}">UserName:</label>
+                    <input type="text" name="{{form.username.name}}" class="form-control">
+                    <span class="text-danger">{{form.username.errors}}</span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="{{form.password1.id_for_label}}">Password</label>
+                    <input type="password" name="{{form.password1.name}}" class="form-control">
+                    <span class="text-danger">{{form.password1.errors}}</span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="{{form.password2.id_for_label}}">Re type Password</label>
+                    <input type="password" name="{{form.password2.name}}" class="form-control">
+                    <span class="text-danger">{{form.password2.errors}}</span>
+                </div>
+
+                <div class="container text-center">
+                  <button type="submit" class="btn btn-dark">Submit</button>
+                  <a href="{% url 'login' %}" class="btn btn-default">Login</a>
+                </div>
+            </form>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
